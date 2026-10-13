@@ -1,0 +1,44 @@
+<div class="row mt-5">
+    <div class="offset-3 col-6">
+        <div class="card border-secondary">
+            <div class="card-header border-secondary">
+                <h5 class="card-title text-white "> View the Flight </h5>
+            </div>
+            <div class="card-body">
+                <!-- Code the required HTML output -->
+
+                <div class="table-responsive">
+
+                    <table *ngIf="flightsDetails" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Passenger Name</th>
+                                <th>Booking Id</th>
+                                <th>No of Tickets</th>
+                                <th>Amount</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let flightBooking of flightsDetails">
+                                <td>{{flightBooking.passengerName}} </td>
+                                <td>{{flightBooking.id}} </td>
+                                <td>{{flightBooking.noOfTickets}} </td>
+                                <td>{{flightBooking.totalAmount}} </td>
+                                <td>
+                                    <button class="btn btn-danger" (click)="delete(flightBooking.id)" [disabled]="flightBooking.totalAmount > 5000"> Delete </button>
+                                </td>
+                            </tr>
+                        </tbody>
+    
+                    </table>
+                </div>
+
+                <div *ngIf="successMessage" class="text-success">
+                    {{successMessage}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

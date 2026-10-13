@@ -1,0 +1,73 @@
+<div class="row mt-5">
+    <div class="offset-sm-4 col-sm-5 ">
+        <div class="panel panel-primary">
+            <div class="panel-heading p-2 text-white"> Book the Flight </div>
+            <div class="panel-body">
+                <!-- code the form here -->
+
+                <form [formGroup]="bookingForm" (ngSubmit)="book()">
+                    <div class="container">
+
+                        <div class="form-group">
+                            <label class="form-label"> Passenger Name</label>
+                            <input type="text" class="form-control" formControlName="passengerName">
+                            <div
+                                *ngIf="bookingForm.controls['passengerName'].touched && bookingForm.controls['passengerName'].invalid">
+                                <div *ngIf="bookingForm.get('noOfTickets')?.hasError('required')" class="error-message">
+                                    Field Required
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">No of Tickets</label>
+                            <input type="number" class="form-control" formControlName="noOfTickets">
+                            <div
+                          
+                                *ngIf="bookingForm.controls['noOfTickets'].touched && bookingForm.controls['noOfTickets'].errors">
+                                <div *ngIf="bookingForm.get('noOfTickets')?.hasError('required')" class="error-message">
+                                    Enter the number greater than zero
+                                </div>
+
+                                <!-- <div class="bookingForm.controls['noOfTickets'].errors.invalid">
+                                    Enter the number greater than zero
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Flight Id</label>
+                            <input type="text" class="form-control" formControlName="flightId">
+                            <div
+                                *ngIf="bookingForm.controls['flightId'].touched && bookingForm.controls['flightId'].invalid ">
+                                <div *ngIf="bookingForm.controls['flightId'].errors?.['required']"
+                                    class="error-message">
+                                    Enter the flightId
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary my-3" [disabled]="bookingForm.invalid">
+                                Book
+                            </button>
+
+                            <button type="button" class="btn btn-warning mx-3" (click)="resetForm()">
+                                reset
+                            </button>
+
+                            <div *ngIf="successMessage" class="success-message">
+                                {{successMessage}}
+                            </div>
+
+                            <div *ngIf="errorMessage" class="error-message">
+                                {{errorMessage}}
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.panel-heading{
+    text-align: center;
+    background-color: rgba(3, 89, 165, 0.8);
+    font-weight: bold;
+}
+
+.panel-body{
+    background-color: rgba(255, 255, 255, .616);
+}
+
+.panel{
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.error-message{
+    color: red;
+}
+
+.success-message{
+    color: green;
+}
+
+label{
+    font-weight: bold;
+}

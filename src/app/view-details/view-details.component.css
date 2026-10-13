@@ -1,0 +1,12 @@
+.error-message{
+    color: red;
+}
+
+.success-message{
+    color: green;
+    font-size: 20px;
+}
+
+.card-header{
+    background-color: rgba(3, 89, 165, 0.8);
+}
