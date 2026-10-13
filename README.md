@@ -18,8 +18,6 @@ Run the following command to start the backend server:
 npm run backend
 ```
 
-> Make sure the `backend` script is defined in your `package.json` and that the required backend files are present.
-
 ## Development Server
 
 Run the following command to start the Angular development server:
